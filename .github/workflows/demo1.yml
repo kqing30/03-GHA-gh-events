@@ -4,7 +4,19 @@ on:
   pull_request:
     types:
       - opened
+    branches:
+      - main #main
+      - 'dev-*' #dev-main, dev-this-is-new
+      - 'feat/**' # feat/new, feat/new/this/new/button
+
   workflow_dispatch:
+  push:
+    branches:
+      - main #main
+      - 'dev-*' #dev-main, dev-this-is-new
+      - 'feat/**' # feat/new, feat/new/this/new/button
+    path-ignore:
+      - '.gitub/workflows/*'
 
 jobs:
   deploy:
